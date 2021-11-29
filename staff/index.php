@@ -1,17 +1,17 @@
 <?php
 require '../conn.php';
 
-if (!isset($_SESSION['idstaff'])) header('location: ../');
-$idstaff = $_SESSION['idstaff'];
+if (!isset($_SESSION['idpengguna'])) header('location: ../');
+// $idstaff = $_SESSION['idstaff'];
 
-$sql = "SELECT staff_name FROM staff WHERE idstaff = ?";
-$stmt = $conn->prepare($sql);
+// $sql = "SELECT staff_name FROM staff WHERE idstaff = ?";
+// $stmt = $conn->prepare($sql);
 
-$stmt->bind_param('i', $idstaff);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($staff_name);
-$stmt->fetch();
+// $stmt->bind_param('i', $idstaff);
+// $stmt->execute();
+// $stmt->store_result();
+// $stmt->bind_result($staff_name);
+// $stmt->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,14 +24,14 @@ $stmt->fetch();
 </head>
 
 <body>
-    <?php echo "Selamat Datang $staff_name"; ?>
+    <?php #echo "Selamat Datang $staff_name"; ?>
     <a href="tambah.php">Add new</a>
     <table border="1" cellpadding="8" cellspacing="0">
         <tr bgcolor="#ffd700">
             <th>Bil</th>
             <th>ID Pengguna</th>
-            <th>Password</th>
             <th>Staff Name</th>
+            <th>Action</th>
         </tr>
         <?php
         $bil = 1;
@@ -42,13 +42,13 @@ $stmt->fetch();
                 <tr>
                     <td><?php echo $bil++; ?></td>
                     <td><?php echo $row->idpengguna; ?></td>
-                    <td><?php echo $row->katalaluan; ?></td>
                     <td><?php echo $row->staff_name; ?></td>
 
                     <td>
                         <a href="kemaskini.php?idstaff=<?php echo $row->idstaff; ?>">Edit</a>
-                        |
+
                         <a href="padam.php?idstaff=<?php echo $row->idstaff; ?>" onclick="return confirm('Seres ah nak padam!??');">Padam</a>
+                        <a href="ubah.php?idstaff=<?php echo $row->idstaff; ?>" onclick="return confirm('Seres ah lupa password!??');">Forgot Password</a>
                     </td>
                 </tr>
         <?php

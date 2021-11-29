@@ -12,7 +12,7 @@
         <input type="hidden" name="idpengguna" value="<?php echo $row->idstaff; ?>"/>
         <table>
             <tr>
-                <td><label for="idpengguna">ID Pengguna</label></td>
+                <td><label for="idpengguna">New Password</label></td>
                 <td>
                     <input id="idpengguna" type="text" name="idpengguna"
                            value="<?php echo $row->idpengguna; ?>" required/>

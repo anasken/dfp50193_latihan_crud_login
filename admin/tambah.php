@@ -14,10 +14,6 @@
 			<input type="text" name="idpengguna" value="">
 		</div>
         <div class="input-group">
-			<label>Password</label>
-			<input type="password" name="katalaluan" value="">
-		</div>
-        <div class="input-group">
 			<label>Staff Name</label>
 			<input type="text" name="staff_name" value="">
 		</div>
